@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Project</title>
+</head>
+<style>
+    ul{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    ul li{
+        list-style: none;
+        padding: 10px;
+        margin:10px;
+        width: 500;
+        height: 500;
+        border: 2px solid red;
+        border-radius: 5px;
+    }
+    ul li:hover{
+        box-shadow: 0 0 15px 6px rgba(28, 28, 27,0.5);
+        border: 2px solid grey;
+    }
+</style>
+<body>
+    <section>
+        <h1>This is API page</h1>
+        <a href="{% url 'home'%}"><button>Home</button></a>
+        <a href="{% url 'weat'%}"><button>Weather</button></a>
+        <ul>
+            {% for book in allbooks%}
+            <li>
+                <h1>Book Name : {{book.book_name}}</h1>
+                <h2>Author : {{book.author}}</h2>
+            </li>
+            {% endfor %}
+        </ul>
+        <section>
+            <h2>Weather in NARASARAOPET is :</h2>
+            <h1 id="wea">{{dat}}</h1>
+        </section>
+    </section>
+    
+</body>
+<script src="{% static '/home.js'%}"></script>
+</html>
